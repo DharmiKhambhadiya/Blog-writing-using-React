@@ -1,0 +1,135 @@
+.postform-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px 28px 28px 28px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(35, 85, 230, 0.10);
+}
+
+.postform-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.postform-image-preview {
+  margin: 0 auto 10px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.postform-img {
+  width: 100%;
+  max-width: 340px;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(35, 85, 230, 0.08);
+}
+
+.postform-rte {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.postform-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d2f36;
+  margin-bottom: 4px;
+}
+
+.postform-btn-row {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Enhanced Draft.js Editor Styles */
+.draft-editor-container {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  overflow: hidden;
+}
+
+.draft-wrapper {
+  border: none;
+}
+
+.draft-editor {
+  min-height: 300px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2d2d2d;
+  background-color: #ffffff;
+}
+
+.draft-editor .public-DraftEditor-content {
+  padding: 12px;
+  margin: 0;
+}
+
+/* Draft.js toolbar styling */
+.rdw-editor-toolbar {
+  border-bottom: 1px solid #ccc;
+  background-color: #f8f9fa;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.rdw-option-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 2px;
+  transition: all 0.2s ease;
+}
+
+.rdw-option-wrapper:hover {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+.rdw-option-active {
+  background-color: #007bff !important;
+  color: white !important;
+  border-color: #007bff !important;
+}
+
+.rdw-dropdown-wrapper {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 2px;
+}
+
+.rdw-dropdown-wrapper:hover {
+  border-color: #007bff;
+}
+
+.rdw-dropdown-optionwrapper {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rdw-dropdown-optionwrapper:hover {
+  background-color: #f8f9fa;
+}
+
+.rte-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+
