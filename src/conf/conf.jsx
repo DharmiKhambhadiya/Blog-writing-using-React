@@ -7,3 +7,4 @@ const conf = {
 };
 
 export default conf;
+// This file contains the configuration for Appwrite services used in the application.

@@ -10,9 +10,11 @@
   cursor: pointer;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   outline: none;
+  white-space: nowrap;
 }
 
-.logout-btn:hover, .logout-btn:focus {
+.logout-btn:hover,
+.logout-btn:focus {
   background: linear-gradient(90deg, #ff6b6b 0%, #e53e3e 100%);
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 4px 16px rgba(229, 62, 62, 0.12);
@@ -21,4 +23,30 @@
 .logout-btn:active {
   background: #e53e3e;
   transform: scale(0.98);
+}
+
+/* Responsive Adjustments */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .logout-btn {
+    padding: 9px 22px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Phones (max-width: 560px) */
+@media (max-width: 560px) {
+  .logout-btn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Smallest phones (max-width: 400px) */
+@media (max-width: 400px) {
+  .logout-btn {
+    padding: 8px 14px;
+    font-size: 0.88rem;
+  }
 }

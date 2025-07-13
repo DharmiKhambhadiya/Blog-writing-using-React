@@ -12,7 +12,9 @@ function RTE({ name, defaultvalue = "", control, label }) {
       try {
         const contentBlock = htmlToDraft(defaultvalue);
         if (contentBlock) {
-          const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+          const contentState = ContentState.createFromBlockArray(
+            contentBlock.contentBlocks
+          );
           return EditorState.createWithContent(contentState);
         }
       } catch (error) {
@@ -27,7 +29,9 @@ function RTE({ name, defaultvalue = "", control, label }) {
       try {
         const contentBlock = htmlToDraft(defaultvalue);
         if (contentBlock) {
-          const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+          const contentState = ContentState.createFromBlockArray(
+            contentBlock.contentBlocks
+          );
           setEditorState(EditorState.createWithContent(contentState));
         }
       } catch (error) {
@@ -50,52 +54,51 @@ function RTE({ name, defaultvalue = "", control, label }) {
                 editorState={editorState}
                 onEditorStateChange={(newState) => {
                   setEditorState(newState);
-                  const htmlContent = draftToHtml(convertToRaw(newState.getCurrentContent()));
+                  let htmlContent = draftToHtml(
+                    convertToRaw(newState.getCurrentContent())
+                  );
+                  htmlContent = htmlContent.replace(/<p><br><\/p>/g, "");
+                  htmlContent = htmlContent.trim();
                   onChange(htmlContent);
                 }}
                 toolbar={{
                   options: [
-                    'inline', 
-                    'blockType', 
-                    'list', 
-                    'textAlign', 
-                    'link', 
-                    'remove', 
-                    'history'
+                    "inline",
+                    "blockType",
+                    "list",
+                    "textAlign",
+                    "link",
+                    "remove",
+                    "history",
                   ],
                   inline: {
                     inDropdown: false,
-                    options: [
-                      'bold', 
-                      'italic', 
-                      'underline', 
-                      'strikethrough'
-                    ],
+                    options: ["bold", "italic", "underline", "strikethrough"],
                   },
                   blockType: {
                     inDropdown: true,
                     options: [
-                      'Normal', 
-                      'H1', 
-                      'H2', 
-                      'H3', 
-                      'H4', 
-                      'H5', 
-                      'H6', 
-                      'Blockquote'
+                      "Normal",
+                      "H1",
+                      "H2",
+                      "H3",
+                      "H4",
+                      "H5",
+                      "H6",
+                      "Blockquote",
                     ],
                   },
                   list: {
                     inDropdown: false,
-                    options: ['unordered', 'ordered'],
+                    options: ["unordered", "ordered"],
                   },
                   textAlign: {
                     inDropdown: false,
-                    options: ['left', 'center', 'right', 'justify'],
+                    options: ["left", "center", "right", "justify"],
                   },
                   link: {
                     inDropdown: false,
-                    options: ['link', 'unlink'],
+                    options: ["link", "unlink"],
                   },
                 }}
                 wrapperClassName="draft-wrapper"

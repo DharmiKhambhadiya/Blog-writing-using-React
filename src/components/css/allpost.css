@@ -2,7 +2,15 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
-  padding: 32px 0;
-  max-width: 1200px;
+  padding: 32px 16px; /* Add horizontal padding for mobile */
+  max-width: 1520px;
+  width: 100%;
   margin: 0 auto;
-} 
+  box-sizing: border-box;
+}
+
+@media (max-width: 320px) {
+  .allpost-grid {
+    grid-template-columns: 1fr; /* Force single column on very small screens */
+  }
+}

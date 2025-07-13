@@ -7,11 +7,23 @@ export class Service {
   bucket;
 
   constructor() {
-    this.client
-      .setEndpoint(conf.appwriteurl)
-      .setProject(conf.appwriteProjectId);
-    this.databases = new Databases(this.client);
-    this.bucket = new Storage(this.client);
+    try {
+      console.log("Initializing Appwrite client with:", {
+        endpoint: conf.appwriteurl,
+        projectId: conf.appwriteProjectId
+      });
+      
+      this.client
+        .setEndpoint(conf.appwriteurl)
+        .setProject(conf.appwriteProjectId);
+      this.databases = new Databases(this.client);
+      this.bucket = new Storage(this.client);
+      
+      console.log("Appwrite client initialized successfully");
+    } catch (error) {
+      console.error("Error initializing Appwrite client:", error);
+      throw error;
+    }
   }
 
   async createPost({ title, slug, content, featuredimage, status, userId }) {

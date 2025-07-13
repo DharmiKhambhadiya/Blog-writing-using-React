@@ -6,10 +6,22 @@ export class AuthService {
   account;
 
   constructor() {
-    this.client
-      .setEndpoint(conf.appwriteurl)
-      .setProject(conf.appwriteProjectId);
-    this.account = new Account(this.client);
+    try {
+      console.log("Initializing Auth client with:", {
+        endpoint: conf.appwriteurl,
+        projectId: conf.appwriteProjectId
+      });
+      
+      this.client
+        .setEndpoint(conf.appwriteurl)
+        .setProject(conf.appwriteProjectId);
+      this.account = new Account(this.client);
+      
+      console.log("Auth client initialized successfully");
+    } catch (error) {
+      console.error("Error initializing Auth client:", error);
+      throw error;
+    }
   }
 
   async createAccount({ email, password, name }) {

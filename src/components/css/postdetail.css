@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 900px;
+  max-width: 1520px;
   margin: 0 auto;
-  padding: 32px 0;
+  padding: 2rem 1rem;
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -17,7 +17,7 @@
 .postdetail-image-wrapper {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto 32px auto;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
 
 .postdetail-img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 16px;
   background: #eee;
@@ -36,27 +36,25 @@
 
 .postdetail-content-wrapper {
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 
 .postdetail-title {
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 0 32px 0;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
   text-align: center;
-  width: 100%;
-  color: #1e3a8a; /* Deep blue */
+  color: #1e3a8a;
 }
 
 .postdetail-content {
   font-size: 1.1rem;
   line-height: 1.7;
   color: #222;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   text-align: center;
   white-space: pre-line;
-  padding-bottom: 1rem;
 }
 
 .postdetail-content p {
@@ -65,13 +63,11 @@
 
 .postdetail-actions {
   display: flex;
-  gap: 24px;
-}
-
-.postdetail-actions-center {
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   width: 100%;
-  margin-bottom: 0;
+  margin-top: 1rem;
 }
 
 .custom-btn {
@@ -90,7 +86,7 @@
 }
 
 .edit-btn {
-  background-color: #10b981; /* Green */
+  background-color: #10b981;
 }
 
 .edit-btn:hover {
@@ -98,30 +94,73 @@
 }
 
 .delete-btn {
-  background-color: #ef4444; /* Red */
+  background-color: #ef4444;
 }
 
 .delete-btn:hover {
   background-color: #dc2626;
 }
 
-/* Responsive */
+/* Tablet Devices */
 @media (max-width: 900px) {
   .postdetail-title {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
-  .postdetail-image-wrapper {
-    max-width: 100%;
+
+  .postdetail-img {
+    aspect-ratio: 4 / 3;
   }
 }
 
-@media (max-width: 600px) {
+/* Medium Screens */
+@media (max-width: 768px) {
   .postdetail-container {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .postdetail-title {
+    font-size: 1.5rem;
   }
 
   .custom-btn {
-    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 560px) {
+  .postdetail-title {
+    font-size: 1.35rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .postdetail-content {
+    font-size: 1rem;
+  }
+
+  .custom-btn {
     font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 400px) {
+  .postdetail-title {
+    font-size: 1.2rem;
+  }
+
+  .postdetail-content {
+    font-size: 0.95rem;
+  }
+
+  .custom-btn {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .postdetail-actions {
+    gap: 0.7rem;
   }
 }

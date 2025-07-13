@@ -3,8 +3,10 @@
   flex-direction: column;
   gap: 6px;
   margin-bottom: 18px;
+  width: 100%;
 }
 
+/* Label Styling */
 .select-label {
   font-size: 1rem;
   font-weight: 500;
@@ -12,6 +14,7 @@
   margin-bottom: 2px;
 }
 
+/* Select Dropdown Styling */
 .select-field {
   width: 100%;
   padding: 12px 14px;
@@ -24,10 +27,49 @@
   outline: none;
   box-shadow: 0 1px 4px rgba(35, 85, 230, 0.03);
   appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234f8cff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px 14px;
 }
 
+/* On focus */
 .select-field:focus {
   border-color: #4f8cff;
-  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+  box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
   background: #fff;
+}
+
+/* Responsive Breakpoints */
+
+/* Tablets and below */
+@media (max-width: 768px) {
+  .select-field {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+    background-position: right 0.8rem center;
+    background-size: 12px 12px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 560px) {
+  .select-label {
+    font-size: 0.95rem;
+  }
+
+  .select-field {
+    font-size: 0.9rem;
+    padding: 9px 11px;
+    background-position: right 0.6rem center;
+    background-size: 12px 12px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .select-field {
+    font-size: 0.88rem;
+    padding: 8px 10px;
+  }
 }
