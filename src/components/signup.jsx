@@ -11,7 +11,12 @@ import "./css/signup.css";
 function Signupcomponent() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [err, setErr] = useState("");
 
   const signin = async (data) => {
@@ -31,9 +36,10 @@ function Signupcomponent() {
         }
       }
     } catch (error) {
-      // Handle specific error cases
       if (error.code === 409) {
-        setErr("An account with this email already exists. Please try logging in instead.");
+        setErr(
+          "An account with this email already exists. Please try logging in instead."
+        );
       } else if (error.code === 400) {
         setErr("Invalid email or password format. Please check your input.");
       } else {
@@ -47,12 +53,14 @@ function Signupcomponent() {
       <div className="signup-box">
         <h1 className="signup-title">Sign Up</h1>
         <p className="signup-subtext">
-          Already have an account?
+          Already have an account?{" "}
           <Link to="/login" className="signup-link">
             Sign In
           </Link>
         </p>
+
         {err && <p className="signup-error">{err}</p>}
+
         <form onSubmit={handleSubmit(signin)} className="signup-form">
           <Input
             label="Email:"
@@ -65,6 +73,9 @@ function Signupcomponent() {
                 "Invalid email address",
             })}
           />
+          {errors.email && (
+            <p className="field-error">{errors.email.message}</p>
+          )}
 
           <Input
             label="Name:"
@@ -78,6 +89,7 @@ function Signupcomponent() {
               },
             })}
           />
+          {errors.name && <p className="field-error">{errors.name.message}</p>}
 
           <Input
             label="Password:"
@@ -91,6 +103,9 @@ function Signupcomponent() {
                 ) || "Password must be 8–16 characters and strong",
             })}
           />
+          {errors.password && (
+            <p className="field-error">{errors.password.message}</p>
+          )}
 
           <button type="submit" className="signup-btn">
             Sign Up
