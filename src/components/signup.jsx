@@ -100,7 +100,8 @@ function Signupcomponent() {
               validate: (value) =>
                 /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,16}$/.test(
                   value
-                ) || "Password must be 8–16 characters and strong",
+                ) ||
+                "Password must be 8–16 characters and include at least one uppercase letter, one lowercase letter, one number, and one special character.",
             })}
           />
           {errors.password && (
