@@ -63,9 +63,21 @@ function Signupcomponent() {
 
         <form onSubmit={handleSubmit(signin)} className="signup-form">
           <Input
-            label="Email:"
+            type="text"
+            placeholder="Enter Your Full Name"
+            {...register("name", {
+              required: "Name is required",
+              minLength: {
+                value: 2,
+                message: "Name must be at least 2 characters",
+              },
+            })}
+          />
+          {errors.name && <p className="field-error">{errors.name.message}</p>}
+
+          <Input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Enter Your Email Address"
             {...register("email", {
               required: "Email is required",
               validate: (value) =>
@@ -78,23 +90,8 @@ function Signupcomponent() {
           )}
 
           <Input
-            label="Name:"
-            type="text"
-            placeholder="Enter your full name"
-            {...register("name", {
-              required: "Name is required",
-              minLength: {
-                value: 2,
-                message: "Name must be at least 2 characters",
-              },
-            })}
-          />
-          {errors.name && <p className="field-error">{errors.name.message}</p>}
-
-          <Input
-            label="Password:"
             type="password"
-            placeholder="Enter your strong password"
+            placeholder="Enter Your Strong Password"
             {...register("password", {
               required: "Password is required",
               validate: (value) =>
